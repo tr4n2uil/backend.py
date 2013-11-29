@@ -1,0 +1,14 @@
+aquadew
+	Python Smart Web Engine
+
+Vibhaj Rajan <vibhaj8@gmail.com>
+	2013 iospace opensource
+
+
+Licensed under The MIT License 
+	http://www.opensource.org/licenses/mit-license.php
+
+REQUIREMENTS
+	-python 2.6+
+	-django
+	-slugify
