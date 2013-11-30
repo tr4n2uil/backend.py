@@ -62,7 +62,10 @@ class File( models.Model ):
 	def edit( self, f ):
 		if f:
 			if os.path.exists( self.path + self.alias + '.' + self.ext ):
-				self.owner.usedstg -= self.file.size
+				try:
+					o = self.owner.get_profile()
+					o.usedstg -= self.file.size
+				except: pass
 				os.remove( self.path + self.alias + '.' + self.ext )
 
 			name, alias, repeat, ext, t = get_alias( f.name, self.owner, ~models.Q( id = self.id ) )
@@ -87,6 +90,10 @@ class File( models.Model ):
 		response[ 'Content-Type' ] = self.mime
 		response.write( open( self.path + self.alias + '.' + self.ext, "rb" ).read() )
 		return response
+
+
+	def url( self ):
+		return self.path[ len( settings.MEDIA_ROOT ): ] + self.alias + '.' + self.ext
 
 
 	@staticmethod
