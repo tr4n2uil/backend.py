@@ -1,0 +1,18 @@
+extends layout
+
+title= "Backend.py in Jade"
+
+block content
+	h1= "Backend.py in Jade"
+
+	p Parameters: Username=#{username} ID=#{id}
+	p= "Pass parameters in URL /view/username/id/"
+
+	p
+		a(href="/view/vibhaj-rajan/15/")= "Vibhaj's Posts"
+		
+	-if request.user.is_authenticated
+		a(href="/logout/") Logout
+	-else
+		a(href="/login/google/") Login with Google
+

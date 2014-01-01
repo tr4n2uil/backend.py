@@ -1,0 +1,44 @@
+{% extends "avatar/base.html" %}
+{% load i18n avatar_tags utils %}
+{% load url from future %}
+
+{% block content %}
+    <br />
+    <br /><br />
+    <br />
+    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}" class="form" id="avatar_add_form">
+
+        <input type="file" name="avatar" onchange="$( '#avatar_add_form' ).submit();" id="avatar_new" style="display: none;" />
+        <button class="btn btn-primary" onclick="$('#avatar_new').click(); return false;">{% trans "Upload New Image" %}</button>
+
+    </form>
+    <br />
+
+    {% if avatars %}
+        <div class="legend border both" style="margin-bottom: 8px;">{% trans "Previous Profile Pictures" %}</div>
+
+        <form method="POST" action="{% url 'avatar_change' %}" class="form" id="avatar_reuse_form">
+
+            <ul class="list-inline">
+                {% for avatar in avatars reversed %}
+                <li class="radio {% if avatar.primary %}checked{% endif %}"><label><input type="radio" value="{{ avatar.id }}" name="choice" class="no-display" {% if avatar.primary %}checked="checked"{% endif %}><img src="{{ avatar|attr:"avatar_url"|call:100 }}" style="height: 100px; border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;"></label></li>
+                {% endfor %}
+            </ul>
+        </form>
+
+        <script type="text/javascript">
+            jQuery( 'input:radio' ).on( 'change', function(){
+                var $name = $( this ).attr( 'name' );
+                $( 'input:radio[name=' + $name + ']' ).each( function(){
+                    $( this ).parent().parent().removeClass( 'checked' );
+                } );
+                    //$block.children( '.checked' ).toggleClass( 'checked' );
+                    $( this ).parent().parent().addClass( 'checked' );
+                    $( '#avatar_reuse_form' ).submit();
+                });
+        </script>
+    {% endif %}
+
+    <br /><br />
+{% endblock %}
+

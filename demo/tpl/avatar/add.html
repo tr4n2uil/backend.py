@@ -1,0 +1,13 @@
+{% extends "avatar/base.html" %}
+{% load i18n avatar_tags %}
+{% load url from future %}
+
+{% block content %}
+    <br />
+    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}" class="form" id="avatar_add_form">
+
+        <input type="file" name="avatar" onchange="$( '#avatar_add_form' ).submit();" id="avatar_new" style="display: none;" />
+        <button class="btn btn-primary" onclick="$('#avatar_new').click(); return false;">{% trans "Upload New Image" %}</button>
+
+    </form>
+{% endblock %}

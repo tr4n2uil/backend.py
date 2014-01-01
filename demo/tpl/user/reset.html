@@ -1,0 +1,67 @@
+{% with menu='login' title='Reset Password' %}
+    {% include 'header.html' %}
+{% endwith %}
+
+{% if request.user.is_authenticated %}
+
+    <meta http-equiv="refresh" content="5;URL='/'" />
+    <div style="text-align: center; padding: 50px 0;">
+        <h3>You are already logged in as {{ request.user.get_profile.name }}.</h3>
+        <h5>Please wait while we redirect you to your dashboard ... </h5>
+    </div>
+
+{% else %}
+
+<div class="row-fluid margin-bottom-10 newui" style="padding-top: 50px; min-height: 400px;">
+    <div class="span4"></div>
+    <div class="span4">
+        <div class="prosection margin-bottom-20">
+        
+        <div class="superlegend border">Forgot Password?</div>
+        
+        {% if reset %}
+            <br /><br />
+            <div class="alert alert-success" style="margin: 15px;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>Request successful. Check your inbox for password reset assistance mail.</p>
+            </div>
+        {% else %}
+
+        <form action="/reset/" method="post" class="login-page form">
+            
+
+            {% if error %}
+            <div class="alert alert-error" style="margin: 15px;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>{{ error }}</p>
+            </div>
+            {% endif %}
+
+            <div class="controls">
+                <label>Username: <span class="color-red">*</span>
+                    <input type="text" placeholder="Username" name="username" class="span12" />
+                </label>
+            </div>
+            <div class="controls">
+                <label>Email: <span class="color-red">*</span>
+                    <input type="text" placeholder="Email" name="email" class="span12" />
+                </label>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" type="submit">Reset Password</button>
+            </div>
+        </form>
+
+        <div style="padding: 15px; border-top: solid 1px #ddd;">
+            <p>Don't have an account? <a href="/register/" class="color-yellow-red">Register now.</a></p>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+    <div class="span4"></div>
+</div>
+
+{% endif %}
+
+{% include 'footer.html' %}

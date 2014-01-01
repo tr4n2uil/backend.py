@@ -11,12 +11,13 @@ from slugify import slugify
 from PIL import Image
 
 
-def render( request, data = None, tmpl = 'home.html', error = None, type = 'html', html = False, *args, **kwargs ):
+def render( request, data = None, tmpl = 'home.html', error = None, type = 'html', html = False, jade = False, *args, **kwargs ):
 	if data is None: data = {}
 	data[ 'settings' ] = settings
 	data[ 'error' ] = error
 
 	if html: tmpl += '.html'
+	if jade: tmpl += '.jade'
 
 	if type == 'json':
 		t = get_template( tmpl )

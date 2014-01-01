@@ -1,0 +1,17 @@
+{% with title='Manage Avatar' %}
+    {% include 'header.html' %}
+{% endwith %}
+
+{% with person=request.user %}
+    {% with admin=0 %}
+        {% include 'user/basic.html' %}
+    {% endwith %}
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+    <a href="/user/{{ user.username }}/" class="btn btn-success">I'm done, back to profile</a>
+{% endwith %}
+
+{% include 'footer.html' %}
