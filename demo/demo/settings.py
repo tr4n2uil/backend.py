@@ -229,9 +229,23 @@ SOCIAL_AUTH_FACEBOOK_KEY = '189445084592792'
 SOCIAL_AUTH_FACEBOOK_SECRET = '5cbaae479621145a23eec8612acedf68'
 SOCIAL_AUTH_FACEBOOK_SCOPE = [ 'email', 'friend_list' ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '453516979674-h6ivs7jmt6t4cmttj5khhnpou0db9le8.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'wlzYoc8SZmI16XuMXQtfpkzk'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '531768047342-309n41kf7db4gr2r43gu8p2250v0otqc.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '64DH1H0K4IJcayMBow5pANsz'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [ 'email', 'profile' ]
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    # 'social.pipeline.mail.mail_validation',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
 
 
 # A sample logging configuration. The only tangible logging
