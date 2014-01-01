@@ -1,0 +1,6 @@
+[submodule "lib/python-social-auth"]
+	path = lib/python-social-auth
+	url = https://github.com/omab/python-social-auth
+[submodule "demo/ui/advanced.js"]
+	path = demo/ui/advanced.js
+	url = https://github.com/tr4n2uil/advanced.js

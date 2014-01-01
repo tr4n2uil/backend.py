@@ -6,6 +6,9 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
 
+	# social urls
+	url( r'', include( 'social.apps.django_app.urls', namespace = 'social' ) ),
+
 	# core
 	url( r'^$', 'django.contrib.auth.views.login', { 'template_name': 'home.jade' }, name='home' ),
 	url( r'^drive/(.*)$', 'django.views.static.serve', kwargs = { 'document_root': settings.MEDIA_ROOT } ),
@@ -18,7 +21,7 @@ urlpatterns = patterns('',
 	url( r'^logout/$', 'django.contrib.auth.views.logout', { 'next_page': '/' }, name='logout' ),
 
 	# avatar urls
-	#url( r'^avatar/', include( 'avatar.urls' ) ),
+	url( r'^avatar/', include( 'avatar.urls' ) ),
 
 	# base user urls
 	#url( r'^verify/(?P<key>[\w]+)?/?$', 'apps.profile.views.verify', name='verify' ),

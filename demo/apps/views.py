@@ -10,8 +10,8 @@ def home( request, username, id, **kwargs ):
 	tmpl = 'home.jade'
 	data = { 'username': username, 'id': id }
 
-	#if not request.user.is_authenticated():
-	#	return HttpResponseRedirect( '/?next=' + request.path )
+	if not request.user.is_authenticated():
+		return HttpResponseRedirect( '/login/facebook/?next=' + request.path )
 
 	return render( request, data = data, tmpl = tmpl )	
 

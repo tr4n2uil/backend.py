@@ -1,6 +1,7 @@
 extends layout
 
-title= "Backend.py in Jade"
+block title
+	title= "Backend.py in Jade"
 
 block content
 	h1= "Backend.py in Jade"
@@ -14,5 +15,7 @@ block content
 	-if request.user.is_authenticated
 		a(href="/logout/") Logout
 	-else
-		a(href="/login/google/") Login with Google
+		span= "Login with "
+		a(href="/login/google-oauth2/") Google
+		a(href="/login/facebook/") Facebook
 

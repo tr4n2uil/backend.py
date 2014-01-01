@@ -5,7 +5,9 @@ os.environ['LANG'] = 'en_US.UTF-8'
 ROOT = os.path.dirname( os.path.abspath( __file__ ) )
 BACKEND = ROOT + '/../../'
 sys.path.append( BACKEND + 'src' )
-sys.path.append( BACKEND + 'lib' )
+sys.path.append( BACKEND + 'lib/django_avatar' )
+sys.path.append( BACKEND + 'lib/python-social-auth' )
+
 
 ROOTPATH = 'http://127.0.0.1:8000'
 SESSION_COOKIE_DOMAIN = '127.0.0.1'
@@ -143,6 +145,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'avatar',
+    'social.apps.django_app.default',
     'fs',
     'util',
 )
@@ -152,6 +155,8 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'util.settings_context_processor.add_settings',
+    #'social.apps.django_app.context_processors.backends',
+    #'social.apps.django_app.context_processors.login_redirect',
 )
 
 
@@ -164,12 +169,14 @@ EMAIL_USE_TLS = True
 
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.facebook.FacebookBackend',
-    #'social_auth.backends.google.GoogleOAuthBackend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
-    #'social_auth.backends.google.GoogleBackend',
-    #'social_auth.backends.OpenIDBackend',
-
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    #'social.backends.open_id.OpenIdAuth',
+    #'social.backends.google.GoogleOpenId',
+    #'social.backends.google.GoogleOAuth',
+    #'social.backends.twitter.TwitterOAuth',
+    #'social.backends.yahoo.YahooOpenId',
+    
     #'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -214,16 +221,17 @@ PERSON_RESET_BODY = 'Hello %(name)s,\n\nPlease use the following link to verify 
 
 PAGE_DEFAULT = 15
 
-# social_auth keys
+# social api keys
 SOCIAL_AUTH_SLUGIFY_USERNAMES = False
 SOCIAL_AUTH_UUID_LENGTH = 0
 
-FACEBOOK_APP_ID = '189445084592792'
-FACEBOOK_API_SECRET = '5cbaae479621145a23eec8612acedf68'
-GOOGLE_CONSUMER_KEY = ''
-GOOGLE_CONSUMER_SECRET = ''
-GOOGLE_OAUTH2_CLIENT_ID = '453516979674-h6ivs7jmt6t4cmttj5khhnpou0db9le8.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET = 'wlzYoc8SZmI16XuMXQtfpkzk'
+SOCIAL_AUTH_FACEBOOK_KEY = '189445084592792'
+SOCIAL_AUTH_FACEBOOK_SECRET = '5cbaae479621145a23eec8612acedf68'
+SOCIAL_AUTH_FACEBOOK_SCOPE = [ 'email', 'friend_list' ]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '453516979674-h6ivs7jmt6t4cmttj5khhnpou0db9le8.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'wlzYoc8SZmI16XuMXQtfpkzk'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [ 'email', 'profile' ]
 
 
 # A sample logging configuration. The only tangible logging
