@@ -12,3 +12,4 @@ REQUIREMENTS
 	-python 2.6
 	-django 1.4
 	-slugify
+	-python-social-auth
