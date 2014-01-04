@@ -6,7 +6,6 @@ ROOT = os.path.dirname( os.path.abspath( __file__ ) )
 BACKEND = ROOT + '/../../'
 sys.path.append( BACKEND + 'src' )
 sys.path.append( BACKEND + 'lib/django_avatar' )
-sys.path.append( BACKEND + 'lib/python-social-auth' )
 
 
 ROOTPATH = 'http://127.0.0.1:8000'
