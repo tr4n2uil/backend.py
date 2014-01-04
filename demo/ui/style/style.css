@@ -1,0 +1,355 @@
+/**
+ *	Responsive LESS file
+ *
+ *	Vibhaj Rajan <vibhaj8@gmail.com>
+ *
+ *	Licensed under MIT License 
+ *	http://www.opensource.org/licenses/mit-license.php
+ *
+**/
+.body {
+  margin: 0.8em 5%;
+}
+.leaf {
+  margin: 0.8em 5%;
+  vertical-align: baseline;
+  line-height: 1.25em;
+}
+.main,
+.sub {
+  display: inline-block;
+  vertical-align: top;
+}
+.main {
+  width: 70%;
+  padding-right: 1.5em;
+}
+.sub {
+  width: 29%;
+}
+.canvas {
+  width: 100%;
+}
+body {
+  font-size: 11px;
+  min-width: 320px;
+}
+@media all and (min-width: 320px) {
+  body,
+  input {
+    font-size: 11px;
+  }
+}
+@media all and (min-width: 480px) {
+  body,
+  input {
+    font-size: 12px;
+  }
+}
+@media all and (min-width: 640px) {
+  body,
+  input {
+    font-size: 13px;
+  }
+}
+@media all and (min-width: 800px) {
+  body,
+  input {
+    font-size: 14px;
+  }
+}
+@media all and (min-width: 960px) {
+  body,
+  input {
+    font-size: 15px;
+  }
+}
+@media all and (min-width: 1120px) {
+  body,
+  input {
+    font-size: 16px;
+  }
+}
+@media all and (min-width: 1280px) {
+  body,
+  input {
+    font-size: 17px;
+  }
+}
+@media all and (min-width: 1440px) {
+  body,
+  input {
+    font-size: 18px;
+  }
+}
+@media all and (min-width: 1600px) {
+  body,
+  input {
+    font-size: 19px;
+  }
+}
+@media all and (min-width: 1760px) {
+  body,
+  input {
+    font-size: 20px;
+  }
+}
+@media all and (min-width: 1920px) {
+  body,
+  input {
+    font-size: 21px;
+  }
+}
+@media all and (min-width: 2080px) {
+  body,
+  input {
+    font-size: 22px;
+  }
+}
+@media all and (min-aspect-ratio: 9/16) {
+  .body,
+  .leaf {
+    margin: 0.8em 5%;
+  }
+  .leaf {
+    width: 5%;
+  }
+}
+@media all and (max-aspect-ratio: 9/16) {
+  .canvas {
+    width: 142%;
+    padding-right: 5%;
+  }
+  .main {
+    padding-right: 3%;
+  }
+}
+@media all and (min-aspect-ratio: 3/4) {
+  .body,
+  .leaf {
+    margin: 0.8em 9%;
+  }
+  .leaf {
+    width: 9%;
+  }
+}
+@media all and (max-aspect-ratio: 3/4) {
+  .canvas {
+    width: 142%;
+    padding-right: 9%;
+  }
+  .main {
+    padding-right: 5.4%;
+  }
+}
+@media all and (min-aspect-ratio: 1/1) {
+  .body,
+  .leaf {
+    margin: 0.8em 13%;
+  }
+  .leaf {
+    width: 13%;
+  }
+}
+@media all and (max-aspect-ratio: 1/1) {
+  .canvas {
+    width: 142%;
+    padding-right: 13%;
+  }
+  .main {
+    padding-right: 7.8%;
+  }
+}
+@media all and (min-aspect-ratio: 4/3) {
+  .body,
+  .leaf {
+    margin: 0.8em 17%;
+  }
+  .leaf {
+    width: 17%;
+  }
+}
+@media all and (max-aspect-ratio: 4/3) {
+  .canvas {
+    width: 142%;
+    padding-right: 17%;
+  }
+  .main {
+    padding-right: 10.2%;
+  }
+}
+@media all and (min-aspect-ratio: 16/9) {
+  .body,
+  .leaf {
+    margin: 0.8em 21%;
+  }
+  .leaf {
+    width: 21%;
+  }
+}
+@media all and (min-aspect-ratio: 4/3) {
+  .leaf {
+    float: left;
+    text-align: right;
+    padding-right: 2em;
+    margin: 0.8em auto;
+  }
+}
+@media all and (min-aspect-ratio: 9/16) {
+  .body,
+  .leaf {
+    margin: 0.8em 5%;
+  }
+  .leaf {
+    width: 5%;
+  }
+}
+@media all and (max-aspect-ratio: 9/16) {
+  .canvas {
+    width: 142%;
+    padding-right: 5%;
+  }
+  .main {
+    padding-right: 3%;
+  }
+}
+@media all and (min-aspect-ratio: 3/4) {
+  .body,
+  .leaf {
+    margin: 0.8em 9%;
+  }
+  .leaf {
+    width: 9%;
+  }
+}
+@media all and (max-aspect-ratio: 3/4) {
+  .canvas {
+    width: 142%;
+    padding-right: 9%;
+  }
+  .main {
+    padding-right: 5.4%;
+  }
+}
+@media all and (min-aspect-ratio: 1/1) {
+  .body,
+  .leaf {
+    margin: 0.8em 13%;
+  }
+  .leaf {
+    width: 13%;
+  }
+}
+@media all and (max-aspect-ratio: 1/1) {
+  .canvas {
+    width: 142%;
+    padding-right: 13%;
+  }
+  .main {
+    padding-right: 7.8%;
+  }
+}
+@media all and (min-aspect-ratio: 4/3) {
+  .body,
+  .leaf {
+    margin: 0.8em 17%;
+  }
+  .leaf {
+    width: 17%;
+  }
+}
+@media all and (max-aspect-ratio: 4/3) {
+  .canvas {
+    width: 142%;
+    padding-right: 17%;
+  }
+  .main {
+    padding-right: 10.2%;
+  }
+}
+@media all and (min-aspect-ratio: 16/9) {
+  .body,
+  .leaf {
+    margin: 0.8em 21%;
+  }
+  .leaf {
+    width: 21%;
+  }
+}
+@media all and (min-aspect-ratio: 4/3) {
+  .leaf {
+    float: left;
+    text-align: right;
+    padding-right: 2em;
+    margin: 0.8em auto;
+  }
+}
+/**
+ *	Utils LESS file
+ *
+ *	Vibhaj Rajan <vibhaj8@gmail.com>
+ *
+ *	Licensed under MIT License 
+ *	http://www.opensource.org/licenses/mit-license.php
+ *
+**/
+.bold {
+  font-weight: bold;
+}
+.no-display {
+  display: none;
+}
+.progress {
+  margin-bottom: 0;
+}
+.percent {
+  position: absolute;
+  top: 0;
+  left: 48%;
+  font-weight: bold;
+  line-height: 1em;
+}
+::-webkit-scrollbar {
+  width: 0.36em;
+  height: 0.36em;
+}
+::-webkit-scrollbar-track {
+  background-color: #eeeeee;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #dddddd;
+}
+body {
+  font-family: 'Proxima Nova', helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #00B7FF;
+}
+.btn {
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+}
+.rounded {
+  max-height: 2em;
+  max-width: 2em;
+  border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+}
+.dim {
+  color: #999;
+}
+.round {
+  border-radius: 17px;
+  -webkit-border-radius: 17px;
+  -moz-border-radius: 17px;
+}
+.no-link {
+  color: #333;
+}

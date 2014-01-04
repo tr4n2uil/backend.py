@@ -13,3 +13,4 @@ REQUIREMENTS
 	-django 1.4
 	-slugify
 	-python-social-auth
+	-pyjade
