@@ -15,7 +15,7 @@ urlpatterns = patterns('',
 	
 	# fs
 	url( r'^embed/$', 'fs.views.embed_image', name="embed_image" ),
-	#url( r'^preview/(?P<id>\d+)/(?P<name>[\w\W]+)?$', 'base.data.views.preview', name='preview' ),
+	#url( r'^preview/(?P<id>\d+)/(?P<name>[\w\W]+)?$', 'fs.views.preview', name='preview' ),
 	
 	# auth urls
 	url( r'^logout/$', 'django.contrib.auth.views.logout', { 'next_page': '/' }, name='logout' ),
@@ -24,13 +24,14 @@ urlpatterns = patterns('',
 	url( r'^avatar/', include( 'avatar.urls' ) ),
 
 	# base user urls
-	#url( r'^verify/(?P<key>[\w]+)?/?$', 'apps.profile.views.verify', name='verify' ),
-	#url( r'^user/(?P<username>[\w\-]+)/(?P<stream>(dashboard))?/?$', 'apps.profile.views.profile', name= 'profile' ),
+	url( r'^verify/(?P<key>[\w]+)?/?$', 'apps.profile.views.verify', name='verify' ),
+	url( r'^user/(?P<username>[\w\-]+)/(?P<stream>(dashboard))?/?$', 'apps.profile.views.profile', name= 'profile' ),
 
 	# apps urls
-	url( r'^view/(?P<username>[\w\-]+)/(?P<id>[\d]+)/$', 'apps.views.home', name='home' ),
+	url( r'^view/(?P<username>[\w\-]+)/(?P<id>[\d]+)/$', 'apps.demo.home', name='home' ),
 	
     # tmpl urls
     url( r'^(?P<tmpl>[\w\-\/]+)/$', 'util.views.render', { 'html' : True }, name='tmpl' ),
+    
 )
 
