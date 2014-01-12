@@ -1,0 +1,6 @@
+[submodule "demo/ui/frontend.js"]
+	path = demo/ui/frontend.js
+	url = http://github.com/tr4n2uil/frontend.js.git
+[submodule "demo/ui/frontend.css"]
+	path = demo/ui/frontend.css
+	url = http://github.com/tr4n2uil/frontend.css.git
