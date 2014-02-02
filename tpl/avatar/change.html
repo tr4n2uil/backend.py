@@ -3,9 +3,9 @@
 {% load url from future %}
 
 {% block content %}
-    <br />
+    <img src="{% avatar_url request.user 50 %}"/>
     <br /><br />
-    <br />
+
     <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}" class="form" id="avatar_add_form">
 
         <input type="file" name="avatar" onchange="$( '#avatar_add_form' ).submit();" id="avatar_new" style="display: none;" />
@@ -15,13 +15,17 @@
     <br />
 
     {% if avatars %}
-        <div class="legend border both" style="margin-bottom: 8px;">{% trans "Previous Profile Pictures" %}</div>
+        <style type="text/css">
+            .radio { border: solid 2px white; }
+            .radio.checked { border: solid 2px black; }
+        </style>
+        <div class="legend border both" style="margin-bottom: 8px;"><h4>{% trans "Previous Profile Pictures" %}</h4></div>
 
         <form method="POST" action="{% url 'avatar_change' %}" class="form" id="avatar_reuse_form">
 
             <ul class="list-inline">
                 {% for avatar in avatars reversed %}
-                <li class="radio {% if avatar.primary %}checked{% endif %}"><label><input type="radio" value="{{ avatar.id }}" name="choice" class="no-display" {% if avatar.primary %}checked="checked"{% endif %}><img src="{{ avatar|attr:"avatar_url"|call:100 }}" style="height: 100px; border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;"></label></li>
+                <li class="radio {% if avatar.primary %}checked{% endif %}" style="margin: 5px 0; padding: 0;"><label><input type="radio" value="{{ avatar.id }}" name="choice" class="no-display" {% if avatar.primary %}checked="checked"{% endif %}><img src="{{ avatar|attr:"avatar_url"|call:50 }}" style="height: 50px;"></label></li>
                 {% endfor %}
             </ul>
         </form>
@@ -40,5 +44,6 @@
     {% endif %}
 
     <br /><br />
+    <a href="/" class="btn btn-success">I'm Done</a>
 {% endblock %}
 

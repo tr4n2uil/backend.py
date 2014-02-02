@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 	url( r'^drive/(.*)$', 'django.views.static.serve', kwargs = { 'document_root': settings.MEDIA_ROOT } ),
 	
 	# fs
-	url( r'^embed/$', 'fs.views.embed_image', name="embed_image" ),
+	url( r'^embed/$', 'backend.fs.views.embed_image', name="embed_image" ),
 	#url( r'^preview/(?P<id>\d+)/(?P<name>[\w\W]+)?$', 'fs.views.preview', name='preview' ),
 	
 	# auth urls
@@ -31,7 +31,7 @@ urlpatterns = patterns('',
 	url( r'^view/(?P<username>[\w\-]+)/(?P<id>[\d]+)/$', 'apps.demo.home', name='home' ),
 	
     # tmpl urls
-    url( r'^(?P<tmpl>[\w\-\/]+)/$', 'util.views.render', { 'html' : True }, name='tmpl' ),
+    url( r'^(?P<tmpl>[\w\-\/]+)/$', 'backend.util.views.render', { 'html' : True }, name='tmpl' ),
     
 )
 

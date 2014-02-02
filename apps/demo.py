@@ -3,7 +3,7 @@ from django.db import models
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 
-from util.views import render, find
+from backend.util.views import render, find
 
 
 def home( request, username, id, **kwargs ):

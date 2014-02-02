@@ -1,4 +1,5 @@
 extends layout
+- load avatar_tags
 
 block title
 	title= "Backend.py in Jade"
@@ -7,14 +8,16 @@ block content
 	.body
 		h1= "Backend.py in Jade"
 
-		p Parameters: Username=#{username} ID=#{id}
+		p Parameters: Username={{ username }} ID={{ id }}
 		p= "Pass parameters in URL /view/username/id/"
 
 		p
 			a(href="/view/vibhaj-rajan/15/")= "Vibhaj's Posts"
 			
 		-if request.user.is_authenticated
-			a(href="/logout/") Logout
+			a(href="/avatar/change/")
+				img( src="{% avatar_url request.user 50 %}")
+			a(href="/logout/") Logout {{ request.user.username }}
 		-else
 			span= "Login with "
 			a(href="/login/google-oauth2/") Google
