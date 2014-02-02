@@ -1,2 +1,2 @@
-uwsgi --stop /tmp/deltaturtle-poc.pid
+uwsgi --stop /tmp/backend.pid
 service nginx stop
