@@ -10,4 +10,5 @@ cd $1
 git submodule update --init --recursive
 
 git remote rm origin
+sed -i 's/backend/$1' conf/nginx.conf
 rm start-project.sh
